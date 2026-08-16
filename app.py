@@ -777,7 +777,99 @@ if predict_button:
         float(probability)
     )
 
+# =========================================================
+# MODEL PERFORMANCE
+# =========================================================
 
+st.markdown("---")
+
+st.markdown(
+    '<div class="section-title">📈 Model Performance</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <p style="color:#667085; font-size:16px;">
+    The machine learning models were evaluated on the
+    test dataset using multiple classification metrics.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# =========================================================
+# SELECTED MODEL
+# =========================================================
+
+st.markdown(
+    f"""
+    <div class="info-card">
+
+        <h3 style="color:#17324d;">
+            🤖 Selected Model
+        </h3>
+
+        <p style="
+            font-size:24px;
+            font-weight:700;
+            color:#17324d;
+        ">
+            {metrics["model"]}
+        </p>
+
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# =========================================================
+# METRIC CARDS
+# =========================================================
+
+col1, col2, col3, col4, col5 = st.columns(5)
+
+
+with col1:
+
+    st.metric(
+        "Accuracy",
+        f'{metrics["accuracy"]:.2%}'
+    )
+
+
+with col2:
+
+    st.metric(
+        "Precision",
+        f'{metrics["precision"]:.2%}'
+    )
+
+
+with col3:
+
+    st.metric(
+        "Recall",
+        f'{metrics["recall"]:.2%}'
+    )
+
+
+with col4:
+
+    st.metric(
+        "F1 Score",
+        f'{metrics["f1_score"]:.2%}'
+    )
+
+
+with col5:
+
+    st.metric(
+        "ROC-AUC",
+        f'{metrics["roc_auc"]:.2%}'
+    )
 # =========================================================
 # PROJECT INFORMATION
 # =========================================================
