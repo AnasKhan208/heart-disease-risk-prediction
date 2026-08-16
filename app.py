@@ -23,26 +23,113 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-    /* Main background */
+    /* ================================
+       MAIN APPLICATION
+       ================================ */
+
     .stApp {
         background: #f5f7fb;
     }
 
-    /* Main title */
+    .main .block-container {
+        max-width: 1200px;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+    }
+
+
+    /* ================================
+       HEADINGS
+       ================================ */
+
     .main-title {
         font-size: 42px;
         font-weight: 800;
-        color: #17324d;
+        color: #17324d !important;
         margin-bottom: 5px;
     }
 
     .subtitle {
         font-size: 18px;
-        color: #667085;
+        color: #667085 !important;
         margin-bottom: 30px;
     }
 
-    /* Cards */
+    .section-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #17324d !important;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+
+    /* ================================
+       STREAMLIT INPUT LABELS
+       ================================ */
+
+    [data-testid="stWidgetLabel"] {
+        color: #17324d !important;
+    }
+
+    [data-testid="stWidgetLabel"] p {
+        color: #17324d !important;
+        font-weight: 600 !important;
+    }
+
+    [data-testid="stWidgetLabel"] label {
+        color: #17324d !important;
+    }
+
+
+    /* ================================
+       INPUT TEXT
+       ================================ */
+
+    input {
+        color: #ffffff !important;
+    }
+
+    textarea {
+        color: #ffffff !important;
+    }
+
+
+    /* ================================
+       SELECTBOX
+       ================================ */
+
+    [data-baseweb="select"] {
+        border-radius: 10px;
+    }
+
+
+    /* ================================
+       BUTTON
+       ================================ */
+
+    .stButton > button {
+        width: 100%;
+        border-radius: 12px;
+        height: 55px;
+        font-size: 18px;
+        font-weight: 700;
+        border: none;
+        background-color: #17324d;
+        color: white;
+        transition: 0.2s;
+    }
+
+    .stButton > button:hover {
+        background-color: #254f73;
+        color: white;
+    }
+
+
+    /* ================================
+       INFO CARDS
+       ================================ */
+
     .info-card {
         background: white;
         padding: 22px;
@@ -52,7 +139,11 @@ st.markdown("""
         margin-bottom: 20px;
     }
 
-    /* Result cards */
+
+    /* ================================
+       HIGH RISK
+       ================================ */
+
     .risk-high {
         background: #fff1f2;
         border-left: 7px solid #dc2626;
@@ -61,6 +152,11 @@ st.markdown("""
         margin-top: 20px;
     }
 
+
+    /* ================================
+       LOW RISK
+       ================================ */
+
     .risk-low {
         background: #ecfdf3;
         border-left: 7px solid #16a34a;
@@ -68,6 +164,11 @@ st.markdown("""
         border-radius: 12px;
         margin-top: 20px;
     }
+
+
+    /* ================================
+       RESULT TEXT
+       ================================ */
 
     .result-title {
         font-size: 28px;
@@ -79,16 +180,30 @@ st.markdown("""
         font-weight: 800;
     }
 
-    /* Section headers */
-    .section-title {
-        font-size: 24px;
-        font-weight: 700;
-        color: #17324d;
-        margin-top: 15px;
-        margin-bottom: 15px;
+
+    /* ================================
+       SIDEBAR
+       ================================ */
+
+    [data-testid="stSidebar"] {
+        background-color: #242630;
     }
 
-    /* Footer */
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: white !important;
+    }
+
+    [data-testid="stSidebar"] p {
+        color: #f2f4f7 !important;
+    }
+
+
+    /* ================================
+       FOOTER
+       ================================ */
+
     .footer {
         text-align: center;
         color: #667085;
@@ -98,7 +213,6 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
-
 
 # =========================================================
 # LOAD MODEL
