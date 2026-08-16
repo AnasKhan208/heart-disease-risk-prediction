@@ -826,7 +826,84 @@ with col3:
         unsafe_allow_html=True
     )
 
+# =========================================================
+# MODEL PERFORMANCE
+# =========================================================
 
+st.markdown("---")
+
+st.markdown(
+    '<div class="section-title">📈 Model Performance</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <p style="color:#667085;">
+    The selected machine learning model was evaluated using
+    multiple classification metrics on the test dataset.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# Model name
+
+st.markdown(
+    f"""
+    <div class="info-card">
+
+    <h3>🤖 Selected Model</h3>
+
+    <p style="font-size:22px; font-weight:700; color:#17324d;">
+    {best_model_name}
+    </p>
+
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# Performance metrics
+
+col1, col2, col3, col4, col5 = st.columns(5)
+
+with col1:
+
+    st.metric(
+        "Accuracy",
+        f"{final_accuracy:.2%}"
+    )
+
+with col2:
+
+    st.metric(
+        "Precision",
+        f"{final_precision:.2%}"
+    )
+
+with col3:
+
+    st.metric(
+        "Recall",
+        f"{final_recall:.2%}"
+    )
+
+with col4:
+
+    st.metric(
+        "F1 Score",
+        f"{final_f1:.2%}"
+    )
+
+with col5:
+
+    st.metric(
+        "ROC-AUC",
+        f"{final_roc_auc:.2%}"
+    )
 # =========================================================
 # FOOTER
 # =========================================================
