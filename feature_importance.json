@@ -1,0 +1,126 @@
+[
+    {
+        "feature": "num__exercise_induced_angina",
+        "importance": 1.9552562331657968
+    },
+    {
+        "feature": "num__st_depression",
+        "importance": 0.8441037241291224
+    },
+    {
+        "feature": "cat__chest_pain_type_Typical Angina",
+        "importance": 0.6503071060754761
+    },
+    {
+        "feature": "num__hba1c",
+        "importance": 0.5746269809947978
+    },
+    {
+        "feature": "cat__chest_pain_type_Asymptomatic",
+        "importance": 0.5728098356285031
+    },
+    {
+        "feature": "num__family_history",
+        "importance": 0.5258653240904636
+    },
+    {
+        "feature": "cat__smoker_status_Current",
+        "importance": 0.5169823617334428
+    },
+    {
+        "feature": "cat__sex_Male",
+        "importance": 0.457190943723249
+    },
+    {
+        "feature": "cat__smoker_status_Never",
+        "importance": 0.41004727451602685
+    },
+    {
+        "feature": "cat__sex_Female",
+        "importance": 0.2953223447840047
+    },
+    {
+        "feature": "cat__chest_pain_type_Atypical Angina",
+        "importance": 0.25011469768527034
+    },
+    {
+        "feature": "num__wearable_owner",
+        "importance": 0.19860964610393322
+    },
+    {
+        "feature": "cat__chest_pain_type_Non-Anginal Pain",
+        "importance": 0.16574336917570573
+    },
+    {
+        "feature": "num__max_heart_rate_achieved",
+        "importance": 0.09436050707300214
+    },
+    {
+        "feature": "num__bmi",
+        "importance": 0.06691395754015547
+    },
+    {
+        "feature": "cat__smoker_status_Former",
+        "importance": 0.054933511705851895
+    },
+    {
+        "feature": "num__resting_heart_rate",
+        "importance": 0.045177078457628785
+    },
+    {
+        "feature": "num__age",
+        "importance": 0.044215045588168536
+    },
+    {
+        "feature": "num__resting_bp_systolic",
+        "importance": 0.025719414599255523
+    },
+    {
+        "feature": "num__hdl",
+        "importance": 0.024262779366331193
+    },
+    {
+        "feature": "num__ldl",
+        "importance": 0.01818170695952575
+    },
+    {
+        "feature": "num__alcohol_units_per_week",
+        "importance": 0.012316894747203641
+    },
+    {
+        "feature": "num__stress_score",
+        "importance": 0.011657971867096132
+    },
+    {
+        "feature": "num__sleep_hours",
+        "importance": 0.004891638259840086
+    },
+    {
+        "feature": "num__cholesterol_total",
+        "importance": 0.003910876616497076
+    },
+    {
+        "feature": "num__fasting_blood_sugar",
+        "importance": 0.003871724637060736
+    },
+    {
+        "feature": "num__resting_bp_diastolic",
+        "importance": 0.0029124462352261506
+    },
+    {
+        "feature": "num__triglycerides",
+        "importance": 0.0016433913325129544
+    },
+    {
+        "feature": "num__diet_quality_score",
+        "importance": 0.0014018500949901148
+    },
+    {
+        "feature": "num__exercise_minutes_per_week",
+        "importance": 0.0010748986896150401
+    },
+    {
+        "feature": "num__daily_steps",
+        "importance": 6.929698014484755e-07
+    }
+]
