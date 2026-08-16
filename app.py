@@ -246,6 +246,20 @@ def load_metrics():
 
 metrics = load_metrics()
 # =========================================================
+# LOAD FEATURE IMPORTANCE
+# =========================================================
+
+@st.cache_data
+def load_feature_importance():
+
+    with open("feature_importance.json", "r") as file:
+        feature_importance = json.load(file)
+
+    return feature_importance
+
+
+feature_importance = load_feature_importance()
+# =========================================================
 # SIDEBAR
 # =========================================================
 
@@ -870,6 +884,75 @@ with col5:
         "ROC-AUC",
         f'{metrics["roc_auc"]:.2%}'
     )
+
+# =========================================================
+# FEATURE IMPORTANCE
+# =========================================================
+
+st.markdown("---")
+
+st.markdown(
+    '<div class="section-title">🔎 Top Important Features</div>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <p style="color:#667085; font-size:16px;">
+    The following features had the greatest influence on
+    the predictions made by the selected machine learning model.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# Convert JSON to DataFrame
+
+importance_df = pd.DataFrame(
+    feature_importance
+)
+
+
+# Take top 10 features
+
+top_features = importance_df.head(10).copy()
+
+
+# Clean feature names
+
+def clean_feature_name(feature):
+
+    feature = feature.replace("num__", "")
+    feature = feature.replace("cat__", "")
+
+    feature = feature.replace("_", " ")
+
+    return feature.title()
+
+
+top_features["Feature"] = (
+    top_features["feature"]
+    .apply(clean_feature_name)
+)
+
+
+top_features["Importance"] = (
+    top_features["importance"]
+)
+
+
+# Create chart
+
+chart_data = top_features[
+    ["Feature", "Importance"]
+].set_index("Feature")
+
+
+st.bar_chart(
+    chart_data,
+    horizontal=True
+)
 # =========================================================
 # PROJECT INFORMATION
 # =========================================================
