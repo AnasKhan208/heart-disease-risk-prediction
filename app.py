@@ -231,7 +231,20 @@ def load_model():
 
 model = load_model()
 
+# =========================================================
+# LOAD MODEL METRICS
+# =========================================================
 
+@st.cache_data
+def load_metrics():
+
+    with open("model_metrics.json", "r") as file:
+        metrics = json.load(file)
+
+    return metrics
+
+
+metrics = load_metrics()
 # =========================================================
 # SIDEBAR
 # =========================================================
