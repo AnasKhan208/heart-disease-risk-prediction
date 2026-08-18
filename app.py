@@ -4,6 +4,20 @@ import numpy as np
 import joblib
 import json
 
+# =========================================================
+# LOAD MODEL METRICS
+# =========================================================
+
+@st.cache_data
+def load_metrics():
+
+    with open("model_metrics.json", "r") as file:
+        metrics = json.load(file)
+
+    return metrics
+
+
+metrics = load_metrics()
 
 # =========================================================
 # PAGE CONFIGURATION
@@ -798,18 +812,12 @@ if predict_button:
 st.markdown("---")
 
 st.markdown(
-    '<div class="section-title">📈 Model Performance</div>',
-    unsafe_allow_html=True
+    "## 📈 Model Performance"
 )
 
-st.markdown(
-    """
-    <p style="color:#667085; font-size:16px;">
-    The machine learning models were evaluated on the
-    test dataset using multiple classification metrics.
-    </p>
-    """,
-    unsafe_allow_html=True
+st.write(
+    "The selected machine learning model was evaluated "
+    "using multiple classification metrics on the test dataset."
 )
 
 
@@ -817,73 +825,57 @@ st.markdown(
 # SELECTED MODEL
 # =========================================================
 
-st.markdown(
-    f"""
-    <div class="info-card">
+st.markdown("### 🤖 Selected Model")
 
-        <h3 style="color:#17324d;">
-            🤖 Selected Model
-        </h3>
-
-        <p style="
-            font-size:24px;
-            font-weight:700;
-            color:#17324d;
-        ">
-            {metrics["model"]}
-        </p>
-
-    </div>
-    """,
-    unsafe_allow_html=True
+st.info(
+    f"**{metrics['model']}** was selected as the final model "
+    "based on the machine learning evaluation."
 )
 
 
 # =========================================================
-# METRIC CARDS
+# PERFORMANCE METRIC CARDS
 # =========================================================
+
+st.markdown("### 📊 Evaluation Metrics")
 
 col1, col2, col3, col4, col5 = st.columns(5)
 
 
 with col1:
-
     st.metric(
-        "Accuracy",
-        f'{metrics["accuracy"]:.2%}'
+        label="Accuracy",
+        value=f"{metrics['accuracy']:.2%}"
     )
 
 
 with col2:
-
     st.metric(
-        "Precision",
-        f'{metrics["precision"]:.2%}'
+        label="Precision",
+        value=f"{metrics['precision']:.2%}"
     )
 
 
 with col3:
-
     st.metric(
-        "Recall",
-        f'{metrics["recall"]:.2%}'
+        label="Recall",
+        value=f"{metrics['recall']:.2%}"
     )
 
 
 with col4:
-
     st.metric(
-        "F1 Score",
-        f'{metrics["f1_score"]:.2%}'
+        label="F1 Score",
+        value=f"{metrics['f1_score']:.2%}"
     )
 
 
 with col5:
-
     st.metric(
-        "ROC-AUC",
-        f'{metrics["roc_auc"]:.2%}'
+        label="ROC-AUC",
+        value=f"{metrics['roc_auc']:.2%}"
     )
+
 
 # =========================================================
 # FEATURE IMPORTANCE
@@ -892,22 +884,16 @@ with col5:
 st.markdown("---")
 
 st.markdown(
-    '<div class="section-title">🔎 Top Important Features</div>',
-    unsafe_allow_html=True
+    "### 🔎 Top Important Features"
 )
 
-st.markdown(
-    """
-    <p style="color:#667085; font-size:16px;">
-    The following features had the greatest influence on
-    the predictions made by the selected machine learning model.
-    </p>
-    """,
-    unsafe_allow_html=True
+st.write(
+    "These features had the greatest influence on the "
+    "predictions made by the selected machine learning model."
 )
 
 
-# Convert JSON to DataFrame
+# Convert JSON data to DataFrame
 
 importance_df = pd.DataFrame(
     feature_importance
@@ -925,7 +911,6 @@ def clean_feature_name(feature):
 
     feature = feature.replace("num__", "")
     feature = feature.replace("cat__", "")
-
     feature = feature.replace("_", " ")
 
     return feature.title()
@@ -936,18 +921,19 @@ top_features["Feature"] = (
     .apply(clean_feature_name)
 )
 
-
 top_features["Importance"] = (
     top_features["importance"]
 )
 
 
-# Create chart
+# Prepare chart data
 
 chart_data = top_features[
     ["Feature", "Importance"]
 ].set_index("Feature")
 
+
+# Display chart
 
 st.bar_chart(
     chart_data,
@@ -1046,7 +1032,7 @@ st.markdown(
     <h3>🤖 Selected Model</h3>
 
     <p style="font-size:22px; font-weight:700; color:#17324d;">
-    {best_model_name}
+    {metrics["model"]}
     </p>
 
     </div>
