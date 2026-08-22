@@ -1,12 +1,12 @@
-# 🫀 Heart Disease Risk Prediction
+# Heart Disease Risk Prediction
 
 A machine learning based web application for predicting heart disease risk using patient, cardiovascular and lifestyle information.
 
-## 🚀 Project Overview
+## Project Overview
 
 This project uses machine learning classification algorithms to predict whether a patient may have a higher risk of heart disease.
 
-## 🤖 Machine Learning Models
+## Machine Learning Models
 
 The following models were evaluated:
 
